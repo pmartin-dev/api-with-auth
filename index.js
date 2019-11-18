@@ -13,12 +13,14 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 
 //Import routes
 const authRoute = require("./routes/auth");
+const postRoute = require("./routes/posts");
 
 //Middlewares
 app.use(express.json());
 
 //Routes middlewares
 app.use("/api/user", authRoute);
+app.use("/api/posts", postRoute);
 
 app.listen(3000, () => {
   console.log("Serveur en écoute sur le port 3000");
